@@ -1,0 +1,16 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently $(find . -name package.json -not -path './node_modules/*' -exec dirname {} \\; | sed 's/^\\./npm:start --prefix /' | tr '\\n' ' ')",
+    "install": "for dir in */; do (cd \"$dir\" && [ -e package.json ] && npm install); done"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
